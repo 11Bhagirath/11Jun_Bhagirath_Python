@@ -47,6 +47,11 @@ print("My ID Is:{} and My Name Is:{}".format(id,name))'''
 
 #EASY METHOD OF FORMAT
 
-id=56
+'''id=56
 name="Bhagirath"
-print(f"My ID is: {id} \nMy Name Is: {name}")
+print(f"My ID is: {id} \nMy Name Is: {name}")'''
+
+a = int(input("Enter A:"))
+b = int(input("Enter B:"))
+
+print(f"A={a},\nB={b} and \nSum of {a}+{b}={a + b}")
