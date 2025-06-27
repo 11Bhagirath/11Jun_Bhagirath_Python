@@ -7,7 +7,6 @@ if first.islower() and last.islower() and email.islower():
     if len(password)<=10 and password==confirm:   
         mobile=(input("Enter Your Mobile Number: "))
         if len(mobile)==10 and mobile.isdigit():
-            print("Details Are OK\n")
             print("---FORM DETAILS---")
             print("First Name: ",first)
             print("Last Name: ",last)
