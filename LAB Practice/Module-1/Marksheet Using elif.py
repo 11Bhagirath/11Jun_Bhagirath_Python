@@ -10,7 +10,7 @@ pr=total/4
 print("PR: ",pr)
 
 if pr>=70: 
-print("Result: Distinction")
+    print("Result: Distinction")
 elif pr>=60: 
     print("Result: First Class")
 elif pr>=50: 
