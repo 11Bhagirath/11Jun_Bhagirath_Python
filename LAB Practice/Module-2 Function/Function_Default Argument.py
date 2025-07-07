@@ -8,4 +8,4 @@ def getdata(id,name,city='Rajkot',sub='Python'):
 
 #getdata(2,'Nirav','Ahmedabad')
 
-getdata(101,'Darshan')
+getdata(101,'Darshan','Junagadh')

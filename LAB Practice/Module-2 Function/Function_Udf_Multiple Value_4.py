@@ -3,10 +3,12 @@ def getdata():
     stid=input("Enter an ID: ")
     stnm=input("Enter an Name: ")
     stct=input("Enter an City: ")
+    
+    print("------------------------")
     print("ID: ",stid)
     print("Name: ",stnm)
     print("City: ",stct)
-    print("  ")
+    print("------------------------")
     
 for i in range(n):
     getdata()
