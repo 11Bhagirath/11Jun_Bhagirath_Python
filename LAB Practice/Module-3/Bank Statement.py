@@ -1,10 +1,10 @@
 from bank import * 
 import random
-balance=0.0
+balance = 0.0
 
 accn = random.randrange(1111111,9999999,210) #Auto Generate acc num
 
-
+#User input 
 name = input("Enter Your Name: ")
 type = input("Enter Your Account Type: ")
 
@@ -17,7 +17,7 @@ else:
     print("Your Deposited Amopunt Is: ", amount)
 
 # Withdrawal Amount 
-withdrawal = int(input("Enter Withdrwal Amount: "))
+withdrawal = int(input("Enter Withdrwal Amount: ")) #Withdrawal user input
 if withdrawal >= amount:
     print("Insufficient Balance!")
     exit()
@@ -28,15 +28,15 @@ else:
 # Statement
 def statement():
     print("------Account Details------")
-    print("Account Number: ",accn)
-    x=acc(name,type="Savings")
-    print("Account Holder Name: ",x[0])
-    print("Account Type: ",x[1])
+    print("Account Number: ", )
+    x=acc(name,type = "Savings")
+    print("Account Holder Name: " , x[0])
+    print("Account Type: ", x[1])
     deposite(amount)
-    print("Deposited Amount Is: ",amount)
+    print("Deposited Amount Is: ", amount)
     withdraw(withdrawal)
-    print("Withdraw Amount Is: ",withdrawal)
-    print("Your Balance Is: ",balance)
+    print("Withdraw Amount Is: ", withdrawal)
+    print("Your Balance Is: ", balance)
 
 # Calling
 statement()
