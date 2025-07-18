@@ -7,10 +7,9 @@ req=requests.get(url)
 
 data=req.json()
 
-x=pandas.DataFrame(data)
 
-#print(x) 
-
+'''rows=[]
+ 
 for i in data:
     print(f"Product ID: {i["id"]}")
     print(f"Product Name: {i["title"]}")
@@ -19,4 +18,11 @@ for i in data:
     print(f"Product Rating: {i["rating"]["rate"]}")
     print("-------------------------------------------")
 
-#print(x.head())
+    rows.append(
+        {"id":i["id"],
+         "Name":i["title"],
+         "Price":i["price"]}
+    )
+x=pandas.DataFrame(rows)
+
+print(x.head())'''
