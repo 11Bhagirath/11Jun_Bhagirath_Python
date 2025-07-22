@@ -1,0 +1,12 @@
+Date & Time: 2025-07-22 18:39:47.232345
+Account Number: 1834028
+Account Name: Bhagirath Gajera
+Account Type: Savings
+Balance: 500000.0
+------------------------------------------
+Date & Time: 2025-07-22 18:40:02.241905
+Account Number: 3185664
+Account Name: Janki Gajera
+Account Type: Savings
+Balance: 400000.0
+------------------------------------------
