@@ -1,6 +1,6 @@
 import qrcode
 
-url="http://rainduction.com"
+url="https://www.marwadiuniversity.ac.in/"
 
 qr=qrcode.make(url)
 
