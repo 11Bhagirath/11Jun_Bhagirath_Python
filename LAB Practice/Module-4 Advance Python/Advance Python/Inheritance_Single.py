@@ -14,4 +14,4 @@ class result(studinfo):
 
 rt = result()
 rt.getdata()
-rt.printdata()
+rt.printdata()       
