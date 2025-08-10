@@ -1,6 +1,6 @@
 from pytubefix import YouTube
 
-url = "https://youtu.be/x0Ecs7HiVJM?si=oANtLTX16WHjyRlQ"
+url = "https://youtu.be/gLUFh9nYmAw?si=AIsJTc4wOOHuWZlX"
 yt = YouTube(url)
 
 # Get highest resolution video-only stream

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Visitor — E‑Police</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <div class="container">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <!-- logo -->
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="14" width="52" height="36" rx="6" fill="#0b61d0"/><path d="M32 20L40 28H24L32 20Z" fill="#fff"/><circle cx="32" cy="36" r="6" fill="#fff"/></svg>
+      </div>
+      <div>
+        <h1 class="site-title">E‑Police — Complaint & FIR Portal</h1>
+        <div style="font-size:12px; color:rgba(255,255,255,0.9); margin-top:4px">Fast • Secure • Connected</div>
+      </div>
+    </div>
+
+    <nav>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="citizen.html">Citizen</a>
+      <a class="nav-link" href="visitor.html">Visitor</a>
+      <div class="mega">
+        <button class="mega-btn">Login ▾</button>
+        <div class="mega-menu" role="menu">
+          <div class="mega-grid">
+            <div class="mega-item">
+              <h4>Login As</h4>
+              <a href="login.html">All Roles (Login)</a>
+            </div>
+            <div class="mega-item">
+              <h4>Citizen</h4>
+              <a href="register.html">Register</a>
+              <a href="fir.html">Add FIR</a>
+            </div>
+            <div class="mega-item">
+              <h4>Help</h4>
+              <a href="rules.html">Rules & Regulation</a>
+              <a href="emergency.html">Emergency Info</a>
+              <a href="visitor.html">Missing Person</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+  <section class="card">
+    <h2>Visitor — Public Info</h2>
+    <p class="small">Public information like missing persons, rules & emergency contacts.</p>
+    <div style="margin-top:12px">
+      <h4>Missing Persons</h4>
+      <div style="display:grid; gap:8px">
+        <div style="display:flex; gap:12px; align-items:center; padding:10px; border-radius:10px; background:linear-gradient(90deg,#fff,#f7fbff)">
+          <div style="width:64px; height:64px; border-radius:8px; background:#eaf2ff; display:grid; place-items:center">MP</div>
+          <div><div style="font-weight:700">Rohit Kumar — Age 17</div><div class="small">Last seen near MG Road — July 22, 2025</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h4>Useful</h4>
+    <a class="small" href="rules.html">Rules & Regulation</a><br/>
+    <a class="small" href="emergency.html">Emergency Info</a>
+  </aside>
+</main>
+
+<!-- Chat widget -->
+<div class="chat-toggle">
+  <button class="chat-btn" id="chatToggle" aria-label="Open chat">💬</button>
+  <div class="chat-window" id="chatWindow" aria-hidden="true">
+    <div class="chat-header">
+      <div style="width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.12);display:grid;place-items:center">E</div>
+      <div><div style="font-weight:700">E‑Police Assistant</div><div style="font-size:12px; opacity:0.9">How can I help?</div></div>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot"><div class="bubble">Hello! I can help with missing person guidance and emergency info.</div></div>
+    </div>
+    <div style="display:flex; gap:8px; padding:10px; border-top:1px solid rgba(11,38,70,0.04)">
+      <input id="chatInput" placeholder="Ask — e.g. 'Emergency number?'" />
+      <button id="chatSend" class="nav-link" style="background:var(--blue-600); color:#fff;">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer class="card">
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+    <div class="small">© 2025 E‑Police Demo — For demo purposes only</div>
+    <div class="small">Built for: Online FIR & complaint handling</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Citizen — E‑Police</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <!-- logo -->
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="14" width="52" height="36" rx="6" fill="#0b61d0"/><path d="M32 20L40 28H24L32 20Z" fill="#fff"/><circle cx="32" cy="36" r="6" fill="#fff"/></svg>
+      </div>
+      <div>
+        <h1 class="site-title">E‑Police — Complaint & FIR Portal</h1>
+        <div style="font-size:12px; color:rgba(255,255,255,0.9); margin-top:4px">Fast • Secure • Connected</div>
+      </div>
+    </div>
+
+    <nav>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="citizen.html">Citizen</a>
+      <a class="nav-link" href="visitor.html">Visitor</a>
+      <div class="mega">
+        <button class="mega-btn">Login ▾</button>
+        <div class="mega-menu" role="menu">
+          <div class="mega-grid">
+            <div class="mega-item">
+              <h4>Login As</h4>
+              <a href="login.html">All Roles (Login)</a>
+            </div>
+            <div class="mega-item">
+              <h4>Citizen</h4>
+              <a href="register.html">Register</a>
+              <a href="fir.html">Add FIR</a>
+            </div>
+            <div class="mega-item">
+              <h4>Help</h4>
+              <a href="rules.html">Rules & Regulation</a>
+              <a href="emergency.html">Emergency Info</a>
+              <a href="visitor.html">Missing Person</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+  <section class="card" data-protect="true">
+    <h2>Citizen Portal</h2>
+    <p class="small">Register, file FIRs, view status and upload evidence.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px">
+      <div class="card">
+        <h4>My FIRs</h4>
+        <p class="small">Login to add/view FIR status.</p>
+        <a class="nav-link" href="fir.html">Add FIR</a>
+      </div>
+      <div class="card">
+        <h4>Profile</h4>
+        <p class="small">Manage profile, upload videos and feedback.</p>
+        <a class="nav-link" href="register.html">Edit Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h4>Quick Links</h4>
+    <a href="rules.html" class="small">Rules & Regulation</a><br/>
+    <a href="emergency.html" class="small">Emergency Info</a>
+  </aside>
+</main>
+
+<!-- Chat widget -->
+<div class="chat-toggle">
+  <button class="chat-btn" id="chatToggle" aria-label="Open chat">💬</button>
+  <div class="chat-window" id="chatWindow" aria-hidden="true">
+    <div class="chat-header">
+      <div style="width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.12);display:grid;place-items:center">E</div>
+      <div><div style="font-weight:700">E‑Police Assistant</div><div style="font-size:12px; opacity:0.9">How can I help you?</div></div>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot"><div class="bubble">Hi — I'm the E‑Police assistant. Ask about filing FIRs or emergencies.</div></div>
+    </div>
+    <div style="display:flex; gap:8px; padding:10px; border-top:1px solid rgba(11,38,70,0.04)">
+      <input id="chatInput" placeholder="Type your question — e.g. 'How to file FIR?'" />
+      <button id="chatSend" class="nav-link" style="background:var(--blue-600); color:#fff;">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer class="card">
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+    <div class="small">© 2025 E‑Police Demo — For demo purposes only</div>
+    <div class="small">Built for: Online FIR & complaint handling</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
