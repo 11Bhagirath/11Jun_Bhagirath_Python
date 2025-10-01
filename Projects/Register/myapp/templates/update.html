@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Police Station | Edit Page</title>
+  
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #0a2a43, #1a73e8);
+    }
+
+    .container {
+      display: flex;
+      width: 85%;
+      max-width: 1000px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    .left-panel {
+      width: 40%;
+      background: #0a2a43;
+      color: #fff;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      animation: slideInLeft 1s ease;
+    }
+
+    .left-panel h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      line-height: 1.4; 
+    }
+
+    .left-panel p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .left-panel img {
+      width: 250px;
+      margin: auto;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    .right-panel {
+      width: 60%;
+      padding: 40px;
+      animation: slideInRight 1s ease;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #1a73e8;
+      box-shadow: 0 0 6px rgba(26,115,232,0.5);
+      outline: none;
+    }
+
+    button {
+      background: #1a73e8;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background: #0a2a43;
+      transform: scale(1.05);
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+
+
+    .terms {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .reset-btn {
+      background: #999;
+    }
+
+    .reset-btn:hover {
+      background: #666;
+    }
+
+    .register-btn {
+      background: #2e7d32;
+    }
+
+    .register-btn:hover {
+      background: #1b5e20;
+    }
+
+    .login-link {
+      margin-top: 15px;
+      font-size: 14px;
+      text-align: center;
+      color: #555;
+    }
+
+    .login-link a {
+      color: #0a2a43;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .login-link a:hover {
+      color: #1a73e8;
+      text-decoration: underline;
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .left-panel, .right-panel {
+        width: 100%;
+      }
+      .input-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h1>Welcome to<br>E-Police Station</h1>
+      <p>Edit Page</p>
+      <img src="#" alt="Police Station" class="theme-img">
+    </div>
+    <div class="right-panel">
+      <form id="registerForm" method="post">
+         {% csrf_token %}
+        <div class="input-group">
+          <input type="text" value="{{uid.name}}" placeholder="First Name" name="name" required>
+          <input type="text" value="{{uid.middlename}}" placeholder="Middle Name" name="middlename">
+          <input type="text" value="{{uid.lastname}}" placeholder="Last Name" name="lastname" required>
+        </div>
+
+        <input type="text" value="{{uid.username}}" placeholder="Username" name="username" required>
+        <input type="text" value="{{uid.state}}" placeholder="State" name="state" required>
+        <input type="text" value="{{uid.city}}" placeholder="City" name="city" required>
+
+        <input type="email" value="{{uid.email}}" placeholder="Email" name="email" required>
+
+        <div class="buttons">
+          <button type="reset" class="reset-btn">Reset</button>
+          <button type="submit" class="register-btn">Update</button>
+        </div>
+        <div class="login-link">
+          <a href="\">Already registered? Login here</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+
+
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const bar = document.getElementById("strength-bar");
+    const matchMessage = document.getElementById("match-message");
+
+
+    // Register confirmation
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      if (!confirm("Are you sure you want to register?")) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

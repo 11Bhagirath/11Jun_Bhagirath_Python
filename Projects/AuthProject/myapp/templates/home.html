@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <div class="flex items-center">
+            <span class="text-2xl font-bold text-indigo-600">MyApp</span>
+          </div>
+          <div class="hidden md:flex space-x-6">
+            <a href="#" class="text-gray-700 hover:text-indigo-600">Home</a>
+            <a href="#" class="text-gray-700 hover:text-indigo-600">Profile</a>
+            <a href="#" class="text-gray-700 hover:text-indigo-600">Settings</a>
+          </div>
+          {% if user is none %}
+          <a
+            href="/"
+            class="bg-green-400 text-black px-3 py-1 rounded hover:bg-yellow-500 transition"
+            >Login</a
+          >
+          {% else %}
+          <div>
+            <a
+              href="/userlogout"
+              class="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:bg-indigo-700"
+              >Logout</a
+            >
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="pt-24 bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
+    >
+      <div class="max-w-7xl mx-auto text-center px-4 py-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Welcome Back!,{{user}}
+        </h1>
+        <p class="text-lg md:text-xl mb-6">
+          You’ve successfully logged in. Explore your dashboard and manage your
+          account.
+        </p>
+        <a
+          href="#features"
+          class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold shadow hover:bg-gray-100 transition"
+          >Get Started</a
+        >
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">
+          Features
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {% if user is none %}
+          <div
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition transform hover:-translate-y-1"
+          >
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Oops!</h3>
+            <p class="text-gray-600">
+              Sorry! You can't access this page without Login!
+            </p>
+            <a
+              href="/"
+              class="inline-block mt-4 text-blue-600 hover:underline font-semibold"
+              >Go to Login! →</a
+            >
+          </div>
+
+          {% else %}
+          <!-- Card 1 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+          >
+            <div class="text-indigo-600 text-4xl mb-4">📊</div>
+            <h3 class="text-xl font-semibold mb-2">Analytics</h3>
+            <p class="text-gray-600">
+              Track your progress and get detailed insights about your activity.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+          >
+            <div class="text-indigo-600 text-4xl mb-4">⚡</div>
+            <h3 class="text-xl font-semibold mb-2">Performance</h3>
+            <p class="text-gray-600">
+              Experience fast and reliable performance on any device.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+          >
+            <div class="text-indigo-600 text-4xl mb-4">🔒</div>
+            <h3 class="text-xl font-semibold mb-2">Security</h3>
+            <p class="text-gray-600">
+              Your data is encrypted and protected with top-level security.
+            </p>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6 mt-10 shadow-inner">
+      <div
+        class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center"
+      >
+        <p class="text-gray-600">© 2025 MyApp. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="text-gray-500 hover:text-indigo-600">Privacy</a>
+          <a href="#" class="text-gray-500 hover:text-indigo-600">Terms</a>
+          <a href="#" class="text-gray-500 hover:text-indigo-600">Support</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

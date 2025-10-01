@@ -1,0 +1,49 @@
+Step1: Activate your env.
+myenv\Script\activate
+
+Step2: Create a Django Project
+django-admin startproject projName
+
+Step3: Select your project folder in CMD
+cd ProjFolder
+
+Step4: Open your project folder in VS Code
+code .
+
+Step5: Open setting & change database settings to mysql
+
+Step6: Create your App
+python manage.py startapp appname & Then Register your app in settings.py
+
+Step7: Create a database in mysql
+
+Step8: Migrate your database
+python manage.py migrate
+
+Step9: Create a Admin user (superuser)
+python manage.py createsuperuser
+
+Step10: Test your server (for output)
+python manage.py runserver
+
+Step11: Register your app in settings.py
+Inside  - INSTALLED_APPS (Your app NAME)
+
+Step12: Create a "templates" folder inside your app folder.
+
+Step13: Create your first .html file inside templates folder.
+
+Step14: Go to your views file, and create a view(function) for your templates.
+
+Step15: Go to urls.py, and Create a URL(path) for your view.
+& From Project Name Imoprt Views
+(For Index Page The First Path Will Be path('',views.index),
+
+Step16: For Index(Home Page) To Connect Each Other Page Only 
+<a href="/">Index</a>
+
+Step17: Go To myapp and create views.py & forms.py in myapp  
+
+Note: In Url path('about/',views.about), The Slash Will Be After &
+In Templates <a href="/contact">About</a> The Slash Will Come Before, And For images &
+css & java to load add static in settings

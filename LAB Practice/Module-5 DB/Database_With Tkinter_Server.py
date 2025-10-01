@@ -1,0 +1,63 @@
+import tkinter
+from tkinter import ttk
+import pymysql
+
+
+windows = tkinter.Tk()
+windows.title("Studets Informationn")
+windows.geometry("500x500")
+windows.config(bg="skyblue")
+
+
+tkinter.Label(text="Enter Your Name:",bg="skyblue",fg="black",
+font="Calibri 15 bold").grid(row=0,column=0,sticky="w")
+tkinter.Label(text="Enter Your City:",bg="skyblue",fg="black",
+font="Calibri 15 bold").grid(row=1,column=0,sticky="w")
+
+nvalue = tkinter.Entry(font="Calibri 10 bold")
+nvalue.grid(row=0,column=1,sticky="w")
+cvalue = tkinter.Entry(font="Calibri 10 bold")
+cvalue.grid(row=1,column=1,sticky="w")
+
+re = tkinter.Label(text="*Inserted Data*",bg="white",fg="black",
+font="Calibri 15 bold")
+re.place(x=165,y=150)
+
+
+try:
+    db=pymysql.connect(host='localhost', user='root', password='',
+    database='morningdb')
+    print("Database Connected!")
+except Exception as e:
+    print("Error: ",e)
+ 
+cr=db.cursor()
+
+#Table Create
+
+tbl_create = "create table studinfo(id integer primary key auto_increment,name text, city text)"
+
+try:
+    cr.execute(tbl_create)
+    print("Table Created!")
+except Exception as e:
+    print("Error: ",e)
+
+def subclick():
+    name = nvalue.get()
+    city = cvalue.get()
+    re.config(text=f"Name:{name}\nCity:{city}")
+
+    insert_data = f"insert into studinfo(name,city) values('{name}','{city}')"
+
+    try:
+        cr.execute(insert_data)
+        db.commit()
+        print("Record Inserted!")
+    except Exception as e:
+        print(e)
+
+tkinter.Button(text="Submit",font="Calibri 14 bold",
+command=subclick).place(x=200,y=100)
+
+windows.mainloop()

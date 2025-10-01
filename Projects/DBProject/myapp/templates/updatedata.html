@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Data</title>
+  </head>
+  <body style="background-color: blue;">
+        <h1
+        style="
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+            'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: aliceblue">
+            Edit Data</h1> <br><br>
+
+        <form method="post">
+          {% csrf_token %}
+
+          <input type="text" value="{{uid.name}}" name="name" placeholder="Name"><br><br>
+          <input type="email" value="{{uid.email}}" name="email" placeholder="Email"><br><br>
+          <input type="date" value="{{uid.dob | date:'Y-m-d'}}" name="dob" placeholder="dob"><br><br>
+          <input type="number" value="{{uid.mobile}}" name="mobile" placeholder="Mobile"><br><br>
+        
+          <input type="submit">
+        </form>
+        <hr>
+        <a style="color: aliceblue;" href="/showdata">All Data</a>
+    </body>
+</html>

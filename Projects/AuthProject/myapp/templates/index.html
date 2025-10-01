@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+  <div class="w-full max-w-md p-8 bg-white rounded-2xl shadow-2xl">
+    <h2 class="text-3xl font-bold text-center text-gray-800">Login</h2>
+    <p class="text-sm text-gray-500 text-center mt-2">Login to access your account</p>
+
+     <!-- Error/Confirm Pop-up -->
+        {% if msg %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{msg}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+    <form method="post" action="#" class="mt-6 space-y-5">
+    {% csrf_token %}
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input name="email" type="email" id="email" placeholder="you@example.com" 
+               class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none">
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input name="password" type="password" id="password" placeholder="••••••••" 
+               class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none">
+      </div>
+
+      <!-- Remember me -->
+      <div class="flex items-center justify-between">
+        <label class="flex items-center space-x-2 text-sm text-gray-600">
+          <input type="checkbox" class="h-4 w-4 text-indigo-500 rounded">
+          <span>Remember me</span>
+        </label>
+        <a href="#" class="text-sm text-indigo-600 hover:underline">Forgot password?</a>
+      </div>
+
+      <!-- Login Button -->
+      <button type="submit" 
+        class="w-full py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition duration-300">
+        Login
+      </button>
+    </form>
+
+    <!-- Divider -->
+    <div class="flex items-center my-6">
+      <hr class="flex-grow border-gray-300">
+      <span class="px-2 text-sm text-gray-500">or</span>
+      <hr class="flex-grow border-gray-300">
+    </div>
+
+    <!-- Social Login -->
+    <div class="flex space-x-4">
+      <button class="flex-1 py-2 px-4 border rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" alt="Google">
+        <span class="text-sm">Google</span>
+      </button>
+      <button class="flex-1 py-2 px-4 border rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition">
+        <img src="https://www.svgrepo.com/show/475647/github-color.svg" class="w-5 h-5" alt="GitHub">
+        <span class="text-sm">GitHub</span>
+      </button>
+    </div>
+
+    <!-- Sign Up -->
+    <p class="mt-6 text-center text-sm text-gray-600">
+      Don’t have an account? 
+      <a href="/register" class="text-indigo-600 font-medium hover:underline">Sign up</a>
+    </p>
+  </div>
+
+</body>
+</html>

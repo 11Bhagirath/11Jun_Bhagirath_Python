@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+
+  <div class="w-full max-w-md p-8 bg-white rounded-2xl shadow-2xl">
+    <h2 class="text-3xl font-bold text-center text-gray-800">Create Account</h2>
+    <p class="text-sm text-gray-500 text-center mt-2">Sign up to get started</p>
+
+    <form method="post" action="#" class="mt-6 space-y-5">
+        {% csrf_token %}
+      <!-- Full Name -->
+      <div>
+        <label  for="name"  class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" name="fullname" id="name" placeholder="John Doe" 
+               class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none">
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" name="email" id="email" placeholder="you@example.com" 
+               class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none">
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" name="password" id="password" placeholder="••••••••" 
+               class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none">
+      </div>
+
+      <!-- Mobile -->
+    <div>
+  <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile</label>
+  <input type="tel" name="mobile" id="mobile" placeholder="+91 234 567 8900" 
+         class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none">
+</div>
+
+
+      <!-- Terms -->
+      <div class="flex items-center">
+        <input type="checkbox" id="terms" class="h-4 w-4 text-pink-500 rounded">
+        <label for="terms" class="ml-2 text-sm text-gray-600">
+          I agree to the <a href="#" class="text-pink-600 hover:underline">Terms & Conditions</a>
+        </label>
+      </div>
+
+      <!-- Sign Up Button -->
+      <button type="submit" 
+              class="w-full py-3 rounded-lg bg-pink-600 text-white font-medium hover:bg-pink-700 transition duration-300">
+        Sign Up
+      </button>
+    </form>
+
+    <!-- Divider -->
+    <div class="flex items-center my-6">
+      <hr class="flex-grow border-gray-300">
+      <span class="px-2 text-sm text-gray-500">or</span>
+      <hr class="flex-grow border-gray-300">
+    </div>
+
+    <!-- Social Signup -->
+    <div class="flex space-x-4">
+      <button class="flex-1 py-2 px-4 border rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" alt="Google">
+        <span class="text-sm">Google</span>
+      </button>
+      <button class="flex-1 py-2 px-4 border rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition">
+        <img src="https://www.svgrepo.com/show/475647/github-color.svg" class="w-5 h-5" alt="GitHub">
+        <span class="text-sm">GitHub</span>
+      </button>
+    </div>
+
+    <!-- Already have account -->
+    <p class="mt-6 text-center text-sm text-gray-600">
+      Already have an account? 
+      <a href="/" class="text-pink-600 font-medium hover:underline">Login</a>
+    </p>
+  </div>
+
+</body>
+</html>
