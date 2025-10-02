@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doctor Finder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        
+        <!-- Logo -->
+        <div class="flex-shrink-0 text-2xl font-bold text-indigo-600">
+          Doctor Finder
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div class="relative">
+          <button id="dropdownButton" 
+                  class="flex items-center text-gray-700 hover:text-indigo-600 focus:outline-none">
+            <span class="mr-2">{{user}}</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Dropdown Items -->
+          <div id="dropdownMenu" 
+               class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20">
+            <a href="/signup" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Signup</a>
+            <a href="/profile" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Profile</a>
+            <a href="/login" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100" id="loginLink">Login</a>
+            <a href="/logout" class="block px-4 py-2 text-gray-700 hover:bg-red-100 hidden" id="logoutLink">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Welcome to Doctor Finder</h1>
+      <p class="text-lg sm:text-xl mb-6">Find the right doctor near you with ease and confidence.</p>
+      <a href="/signup" 
+         class="bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg font-semibold hover:bg-gray-100 transition">
+        Get Started
+      </a>
+    </div>
+  </section>
+
+  <!-- JavaScript for Dropdown + Login State -->
+  <script>
+    const dropdownButton = document.getElementById("dropdownButton");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const logoutLink = document.getElementById("logoutLink");
+    const loginLink = document.getElementById("loginLink");
+
+    // Simulated user login state (replace with Django template logic in real app)
+    const isLoggedIn = false; // set true if user logged in
+
+    if (isLoggedIn) {
+      logoutLink.classList.remove("hidden");
+      loginLink.classList.add("hidden");
+    } else {
+      logoutLink.classList.add("hidden");
+      loginLink.classList.remove("hidden");
+    }
+
+    dropdownButton.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("hidden");
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", (e) => {
+      if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>

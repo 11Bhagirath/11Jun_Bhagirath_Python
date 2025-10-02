@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup | Doctor Finder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-white shadow-lg rounded-2xl p-8">
+    <h2 class="text-2xl font-bold text-center text-indigo-600 mb-6">Create an Account</h2>
+    <form id="signupForm" class="space-y-4" method="post">
+
+        <!-- Fullname -->
+        <div>
+            <label for="fullname" class="block text-gray-700 font-medium">Full Name</label>
+            <input type="text" id="fullname" name="fullname" class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none" required>
+            <p id="fullname" class="text-sm text-red-500 hidden">Username must be at least 3 characters</p>
+        </div>
+
+
+      <!-- Username -->
+        <div>
+            <label for="username" class="block text-gray-700 font-medium">Username</label>
+            <input type="text" id="username" name="username" class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none" required>
+            <p id="usernameError" class="text-sm text-red-500 hidden">Username must be at least 3 characters</p>
+        </div>
+      
+      <!-- Email -->
+        <div>
+            <label for="email" class="block text-gray-700 font-medium">Email</label>
+            <input type="email" id="email" name="email" class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none" required>
+            <p id="emailError" class="text-sm text-red-500 hidden">Please enter a valid email</p>
+        </div>
+
+      <!-- Password -->
+        <div>
+            <label for="password" class="block text-gray-700 font-medium">Password</label>
+            <input type="password" id="password" name="password" class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none" required>
+            <p id="passwordError" class="text-sm text-red-500 hidden">Password must be at least 6 characters</p>
+        </div>
+
+      <!-- Mobile -->
+        <div>
+            <label for="mobile" class="block text-gray-700 font-medium">Mobile</label>
+            <input type="number" id="mobile" name="confirmPassword" class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none" required>
+        </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300">Sign Up</button>
+    </form>
+     <p class="text-center text-blue-900 mt-6">
+        <b>Already have an account?</b>
+        <a href="/login" class="text-blue-900 hover:underline font-medium"
+          ><b>Log In</b></a
+        >
+      </p>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      let isValid = true;
+
+      // Username validation
+      const username = document.getElementById('username').value.trim();
+      if (username.length < 3) {
+        document.getElementById('usernameError').classList.remove('hidden');
+        isValid = false;
+      } else {
+        document.getElementById('usernameError').classList.add('hidden');
+      }
+
+      // Email validation
+      const email = document.getElementById('email').value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById('emailError').classList.remove('hidden');
+        isValid = false;
+      } else {
+        document.getElementById('emailError').classList.add('hidden');
+      }
+
+      // Password validation
+      const password = document.getElementById('password').value;
+      if (password.length < 6) {
+        document.getElementById('passwordError').classList.remove('hidden');
+        isValid = false;
+      } else {
+        document.getElementById('passwordError').classList.add('hidden');
+      }
+
+      if (isValid) {
+        alert('Signup successful!');
+        // Here you can submit the form data using AJAX or proceed further
+      }
+    });
+  </script>
+</body>
+</html>
